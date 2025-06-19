@@ -51,5 +51,11 @@ int main(){
         cout<<EMPLEADOS[i].sal<<endl<<endl;
     }
     cout<<"el empleado con mayor venta del año es: "<<nomx<<" de orden "<<numx<<" con una venta de "<<maxv<<endl;
+    cout<<"empleadoa con ventas menor a 30  unidades en el mes de diciembre"<<endl;
+    for(int i=0;i<n;i++){
+        if(EMPLEADOS[i].ven[11]<30){
+           cout<<"de orden "<<EMPLEADOS[i].num<<" y nombre "<<EMPLEADOS[i].nom<<endl;
+        }
+    }
     return 0;
 }
