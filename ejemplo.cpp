@@ -28,7 +28,9 @@ int main(){
         }
         cout<<"ingrese el salario del empleado"<<endl;
         cin>>EMPLEADOS[i].sal;
-        
+        if(EMPLEADOS[i].smve>100){
+            EMPLEADOS[i].sal=EMPLEADOS[i].sal*1.1;
+        }
     }
     maxv=EMPLEADOS[0].smve;
     nomx=EMPLEADOS[0].nom;
