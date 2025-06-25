@@ -16,9 +16,10 @@ struct contactoEmail{
 void leerCorreo(correo &, string, string);
 void leerContacto(contactoEmail &, string, char, int, correo);
 void imprimeContacto(contactoEmail &);
+void modificarcontacto(contactoEmail &);
 
 int main(){
-    int n, op;
+    int n,nm,op;
     string nom, user, domain;
     char sex;
     int edad;
@@ -53,12 +54,15 @@ int main(){
                 break;
             case 2:
                 for(int i = 0; i < n; i++){
-                    cout<<"Contacto #"<<i<<endl;
+                    cout<<"Contacto #"<<i+1<<endl;
                     imprimeContacto(lista[i]);
                     cout<<endl;
                 }
                 system("pause");
                 break;
+            case 3:
+                cout<<"ingrese el orden del contacto a modificar"<<endl;cin>>nm;
+                modificarcontacto(lista[nm-1]);
             case 0:
                 cout<<"Esta seguro de salir? (S/N): ";
                 break;
@@ -88,4 +92,22 @@ void imprimeContacto(contactoEmail &c){
     cout<<"Sexo: "<<c.sex<<endl;
     cout<<"Edad: "<<c.edad<<endl;
     cout<<"Email: "<<c.email.user<<"@"<<c.email.domain<<endl;
+}
+void modificarcontacto(contactoEmail &c){
+    string nomd, userd, domaind;
+    char sexd;
+    int edadd;
+    cout<<"Ingrese los datos de un usuario: "<<endl;
+    cin.ignore();
+    cout<<"Ingrese el nombre del contacto: "; getline(cin,nomd);
+    cout<<"Ingrese el sexo (M/F): "; cin>>sexd;
+    cout<<"Ingrese la edad: "; cin>>edadd;
+    cout<<"Ingrese el correo electronico (usuario@dominio): "<<endl;
+    cout<<"\tIngrese el usuario: "; cin>>userd;
+    cout<<"\tIngrese el dominio: "; cin>>domaind;
+    c.nom=nomd;
+    c.sex=sexd;
+    c.edad=edadd;
+    c.email.user=userd;
+    c.email.domain=domaind;
 }
