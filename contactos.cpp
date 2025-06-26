@@ -1,4 +1,5 @@
 #include<iostream>
+#include <iomanip>
 using namespace std;
 
 struct correo{
@@ -17,6 +18,7 @@ void leerCorreo(correo &, string, string);
 void leerContacto(contactoEmail &, string, char, int, correo);
 void imprimeContacto(contactoEmail &);
 void modificarcontacto(contactoEmail &);
+void imprimeContacto2(contactoEmail &,int);
 
 int main(){
     int n,nm,op;
@@ -30,7 +32,8 @@ int main(){
         system("cls");
         cout<<"Menu de opciones -------------------------"<<endl;
         cout<<"1. Agregar contacto"<<endl;
-        cout<<"2. Mostrar contactos"<<endl;
+        cout<<"2. Modificar un contacto"<<endl;
+        cout<<"3. Mostrar contactos "<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"Elige una opcion: "; cin>>op;
         switch(op){
@@ -52,7 +55,7 @@ int main(){
                 n++;
                 system("pause");
                 break;
-            case 2:
+            case 3:
                 for(int i = 0; i < n; i++){
                     cout<<"Contacto #"<<i+1<<endl;
                     imprimeContacto(lista[i]);
@@ -60,9 +63,14 @@ int main(){
                 }
                 system("pause");
                 break;
-            case 3:
+            case 2:
+            cout<<" Id  Nombre                              sexo         edad   correo electronico"<<endl;
+            for(int i=0;i<n;i++){
+                imprimeContacto2(lista[i],i);
+            }
                 cout<<"ingrese el orden del contacto a modificar"<<endl;cin>>nm;
                 modificarcontacto(lista[nm-1]);
+                break;
             case 0:
                 cout<<"Esta seguro de salir? (S/N): ";
                 break;
@@ -110,4 +118,11 @@ void modificarcontacto(contactoEmail &c){
     c.edad=edadd;
     c.email.user=userd;
     c.email.domain=domaind;
+}
+void imprimeContacto2(contactoEmail &c, int i){
+    cout << left << setw(5) << i+1 
+         << setw(35) << c.nom 
+         << setw(12) << (c.sex == 'M' ? "Masculino" : "Femenino")
+         << setw(8) << c.edad 
+         << c.email.user << "@" << c.email.domain << endl;
 }
