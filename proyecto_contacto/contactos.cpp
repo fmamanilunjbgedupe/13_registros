@@ -1,11 +1,9 @@
 #include<iostream>
 #include <iomanip>
 #include "leer_contacto.h"
+#include "modificar_contacto.h"
 using namespace std;
 
-
-
-void modificarcontacto(contactoEmail &);
 void imprimeContacto(contactoEmail &,int);
 
 int main(){
@@ -83,24 +81,6 @@ int main(){
     return 0;
 }
 
-void modificarcontacto(contactoEmail &c){
-    string nomd, userd, domaind;
-    char sexd;
-    int edadd;
-    cout<<"Ingrese los datos de un usuario: "<<endl;
-    cin.ignore();
-    cout<<"Ingrese el nombre del contacto: "; getline(cin,nomd);
-    cout<<"Ingrese el sexo (M/F): "; cin>>sexd;
-    cout<<"Ingrese la edad: "; cin>>edadd;
-    cout<<"Ingrese el correo electronico (usuario@dominio): "<<endl;
-    cout<<"\tIngrese el usuario: "; cin>>userd;
-    cout<<"\tIngrese el dominio: "; cin>>domaind;
-    c.nom=nomd;
-    c.sex=sexd;
-    c.edad=edadd;
-    c.email.user=userd;
-    c.email.domain=domaind;
-}
 void imprimeContacto(contactoEmail &c, int i){
     cout << left << setw(5) << i+1 
          << setw(35) << c.nom 
