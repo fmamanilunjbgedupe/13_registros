@@ -16,9 +16,8 @@ struct contactoEmail{
 
 void leerCorreo(correo &, string, string);
 void leerContacto(contactoEmail &, string, char, int, correo);
-void imprimeContacto(contactoEmail &);
 void modificarcontacto(contactoEmail &);
-void imprimeContacto2(contactoEmail &,int);
+void imprimeContacto(contactoEmail &,int);
 
 int main(){
     int n,nm,op;
@@ -59,14 +58,14 @@ int main(){
             case 3:
                 cout<<" Id  Nombre                              sexo         edad   correo electronico"<<endl;
                 for(int i=0;i<n;i++){
-                imprimeContacto2(lista[i],i);
+                imprimeContacto(lista[i],i);
                 }
                 system("pause");
                 break;
             case 2:
             cout<<" Id  Nombre                              sexo         edad   correo electronico"<<endl;
             for(int i=0;i<n;i++){
-                imprimeContacto2(lista[i],i);
+                imprimeContacto(lista[i],i);
             }
                 cout<<"ingrese el orden del contacto a modificar"<<endl;cin>>nm;
                 modificarcontacto(lista[nm-1]);
@@ -74,7 +73,7 @@ int main(){
             case 4:
                 cout<<" Id  Nombre                              sexo         edad   correo electronico"<<endl;
                 for(int i=0;i<n;i++){
-                    imprimeContacto2(lista[i],i);
+                    imprimeContacto(lista[i],i);
                 }
                 system("pause");
                 cout<<"ingrese el numero de contacto a eliminar"<<endl;cin>>nm;
@@ -106,13 +105,6 @@ void leerCorreo(correo &c, string u, string d){
     c.user = u;
     c.domain = d;
 }
-
-void imprimeContacto(contactoEmail &c){
-    cout<<"Nombre: "<<c.nom<<endl;
-    cout<<"Sexo: "<<c.sex<<endl;
-    cout<<"Edad: "<<c.edad<<endl;
-    cout<<"Email: "<<c.email.user<<"@"<<c.email.domain<<endl;
-}
 void modificarcontacto(contactoEmail &c){
     string nomd, userd, domaind;
     char sexd;
@@ -131,7 +123,7 @@ void modificarcontacto(contactoEmail &c){
     c.email.user=userd;
     c.email.domain=domaind;
 }
-void imprimeContacto2(contactoEmail &c, int i){
+void imprimeContacto(contactoEmail &c, int i){
     cout << left << setw(5) << i+1 
          << setw(35) << c.nom 
          << setw(12) << (c.sex == 'M' ? "Masculino" : "Femenino")
