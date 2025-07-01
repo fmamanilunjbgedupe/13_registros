@@ -1,10 +1,8 @@
 #include<iostream>
-#include <iomanip>
 #include "leer_contacto.h"
 #include "modificar_contacto.h"
+#include "imprimir_contacto.h"
 using namespace std;
-
-void imprimeContacto(contactoEmail &,int);
 
 int main(){
     int n,nm,op;
@@ -81,10 +79,3 @@ int main(){
     return 0;
 }
 
-void imprimeContacto(contactoEmail &c, int i){
-    cout << left << setw(5) << i+1 
-         << setw(35) << c.nom 
-         << setw(12) << (c.sex == 'M' ? "Masculino" : "Femenino")
-         << setw(8) << c.edad 
-         << c.email.user << "@" << c.email.domain << endl;
-}
