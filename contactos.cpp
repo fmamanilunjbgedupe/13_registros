@@ -34,6 +34,7 @@ int main(){
         cout<<"1. Agregar contacto"<<endl;
         cout<<"2. Modificar un contacto"<<endl;
         cout<<"3. Mostrar contactos "<<endl;
+        cout<<"4. Eliminar contactos"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"Elige una opcion: "; cin>>op;
         switch(op){
@@ -56,10 +57,9 @@ int main(){
                 system("pause");
                 break;
             case 3:
-                for(int i = 0; i < n; i++){
-                    cout<<"Contacto #"<<i+1<<endl;
-                    imprimeContacto(lista[i]);
-                    cout<<endl;
+                cout<<" Id  Nombre                              sexo         edad   correo electronico"<<endl;
+                for(int i=0;i<n;i++){
+                imprimeContacto2(lista[i],i);
                 }
                 system("pause");
                 break;
@@ -71,6 +71,18 @@ int main(){
                 cout<<"ingrese el orden del contacto a modificar"<<endl;cin>>nm;
                 modificarcontacto(lista[nm-1]);
                 break;
+            case 4:
+                cout<<" Id  Nombre                              sexo         edad   correo electronico"<<endl;
+                for(int i=0;i<n;i++){
+                    imprimeContacto2(lista[i],i);
+                }
+                system("pause");
+                cout<<"ingrese el numero de contacto a eliminar"<<endl;cin>>nm;
+                for(int i=nm-1;i<n;i++){
+                    lista[i]=lista[i+1];
+                    n=n-1;
+                    break;
+                }
             case 0:
                 cout<<"Esta seguro de salir? (S/N): ";
                 break;
