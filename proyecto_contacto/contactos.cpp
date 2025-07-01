@@ -1,21 +1,10 @@
 #include<iostream>
 #include <iomanip>
+#include "leer_contacto.h"
 using namespace std;
 
-struct correo{
-    string user;
-    string domain;
-};
 
-struct contactoEmail{
-    string nom;
-    char sex;
-    int edad;
-    correo email;
-};
 
-void leerCorreo(correo &, string, string);
-void leerContacto(contactoEmail &, string, char, int, correo);
 void modificarcontacto(contactoEmail &);
 void imprimeContacto(contactoEmail &,int);
 
@@ -94,17 +83,6 @@ int main(){
     return 0;
 }
 
-void leerContacto(contactoEmail &c, string n, char s, int e, correo em){
-    c.nom = n;
-    c.sex = s;
-    c.edad = e;
-    c.email = em;
-}
-
-void leerCorreo(correo &c, string u, string d){
-    c.user = u;
-    c.domain = d;
-}
 void modificarcontacto(contactoEmail &c){
     string nomd, userd, domaind;
     char sexd;
